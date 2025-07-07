@@ -1,4 +1,6 @@
 # Mirobot
+### Connecting Mirobot with Python (without Wlkata studio)
+
 
 ### pip list
 |Package|Version|
