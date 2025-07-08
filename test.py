@@ -15,7 +15,7 @@ coordinate_g = [[30 , 0 , 0 , 0 , 0 , 0],
                 [0 , 0 , 0 , 0 , 0 , 30], 
                 [0 , 0 , 0 , 0 , 0 , -30]]
 
-serial1 = serial.Serial("COM6", 115200)  # Set the serial port and baud rate
+serial1 = serial.Serial('COM7', 115200)  # Set the serial port and baud rate
 mirobot1 = wlkatapython.Wlkata_UART()  # Create object mirobot1
 print("Initializing Robot...")
 
@@ -53,6 +53,7 @@ for i in range(0, 12):
     # Wait for the robot to be idle before sending the next command
     while mirobot1.getState() != "Idle": 
         print(f"Robotic Arm Status: {mirobot1.getState()}")
+        mirobot1.homing()
         time.sleep(1)  # Wait a bit before checking again
 
     # Send the move command
