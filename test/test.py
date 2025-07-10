@@ -15,7 +15,7 @@ coordinate_g = [[30 , 0 , 0 , 0 , 0 , 0],
                 [0 , 0 , 0 , 0 , 0 , 30], 
                 [0 , 0 , 0 , 0 , 0 , -30]]
 
-serial1 = serial.Serial('COM7', 115200)  # Set the serial port and baud rate
+serial1 = serial.Serial('COM6', 115200)  # Set the serial port and baud rate
 mirobot1 = wlkatapython.Wlkata_UART()  # Create object mirobot1
 print("Initializing Robot...")
 
