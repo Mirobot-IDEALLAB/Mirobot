@@ -1,7 +1,7 @@
 from motion import Motion
 import time
 
-robot = Motion(serial_port="COM6", baud_rate=115200)
+robot = Motion(serial_port="/dev/ttyUSB0", baud_rate=115200)
 
 command_map = {
     "help": lambda: print("사용 가능한 명령어: " + ", ".join(command_map.keys())),
