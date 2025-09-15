@@ -1,0 +1,9 @@
+[
+    {
+        "name": "homing",
+        "description": "로봇을 제어하기 위한 준비 동작 및 로봇 위치 초기화",
+        "parameters": {
+            "type": "object"
+        }
+    }   
+]
