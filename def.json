@@ -7,5 +7,98 @@
             "properties": {},
             "required": []
         }
+    },
+
+    {
+        "name": "zero",
+        "description": "Control the robot arm back to its initial position (zero position)",
+        "parameters": {
+            "type": "object",
+            "properties": {},
+            "required": []
+        }
+    },
+
+    {
+        "name": "cancellation",
+        "description": "The robotic arm stops the current action in the form of deceleration and cleans up the cached action.",
+        "parameters": {
+            "type": "object",
+            "properties": {},
+            "required": []
+        }
+    },
+    
+    {
+        "name": "get_angle",
+        "description": "Query robotic arm joint angle of each axis.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "num": {
+                    "type": "number",
+                    "description": "The axis number to query (1-6)."
+                }
+            },
+            "required": ["num"]
+        }
+    },
+
+    {
+        "name": "get_coordinate",
+        "description": "Queries the coordinate for a specific axis of the robotic arm. 1 corresponds to X, 2 to Y, 3 to Z, 4 to RX, 5 to RY, and 6 to RZ.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "num": {
+                    "type": "number",
+                    "description": "The axis number to query (1-6)."
+                }
+            },
+            "required": ["num"]
+        }
+    },
+
+    {
+        "name": "write_coordinate",
+        "description": "Controls the robotic arm in Cartesian coordinate mode.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "motion": {
+                    "type": "number",
+                    "description": "Movement type. 0: fast movement; 1: linear movement; 2: door type movement."
+                },
+                "position": {
+                    "type": "number",
+                    "description": "Position type. 0: absolute movement; 1: relative movement."
+                },
+                "x": {
+                    "type": "number",
+                    "description": "X-axis coordinate."
+                },
+                "y": {
+                    "type": "number",
+                    "description": "Y-axis coordinate."
+                },
+                "z": {
+                    "type": "number",
+                    "description": "Z-axis coordinate."
+                },
+                "a": {
+                    "type": "number",
+                    "description": "A-axis coordinate."
+                },
+                "b": {
+                    "type": "number",
+                    "description": "B-axis coordinate."
+                },
+                "c": {
+                    "type": "number",
+                    "description": "C-axis coordinate."
+                }
+            },
+            "required": ["x", "y", "z"]
+        }
     }
 ]
