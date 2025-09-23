@@ -18,7 +18,7 @@ coordinate_g = [[30, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, -30]]
 
 # --- 설정 ---
-COM_PORT = 'COM3'  # 로봇의 실제 COM 포트와 일치하는지 확인하세요.
+COM_PORT = '/dev/ttyUSB0'  # 로봇의 실제 COM 포트와 일치하는지 확인하세요.
 BAUD_RATE = 115200 # 로봇의 보드레이트와 일치하는지 확인하세요.
 ROBOT_ADDRESS = -1 # 기본 주소, 문제가 지속되면 wlkatapython 문서를 확인하세요.
 

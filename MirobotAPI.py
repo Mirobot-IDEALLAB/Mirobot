@@ -1,11 +1,9 @@
-# mirobot_api.py (wlkatapython 기반)
-
 import wlkatapython
 import serial
 import time
 
 class MirobotAPI:
-    def __init__(self, port="COM5", baud_rate=115200):
+    def __init__(self, port="/dev/ttyUSB0", baud_rate=115200):
         self.serial_port = port
         self.baud_rate = baud_rate
         self.mirobot = wlkatapython.Mirobot_UART()
