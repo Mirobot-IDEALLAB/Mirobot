@@ -27,7 +27,7 @@ class MirobotAPI:
         time.sleep(1)
     
     # Cartesian 이동 (x,y,z,a,b,c = 6자유도)
-    def move_xyzrpy(self, x, y, z, a=0, b=0, c=0, motion=1, position=0):
+    def move_xyzrpy(self, x, y, z, a=0, b=0, c=0, motion=1, position=1):
         """
         motion: 0-fast, 1-linear, 2-door type
         position: 0-absolute, 1-relative
