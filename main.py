@@ -16,7 +16,14 @@ robot = MirobotAPI(port=COM_PORT, baud_rate=BAUD_RATE)
 robot.home()
 time.sleep(2)  # 홈 위치로 이동할 시간을 줌
 
-output = ready_model()
+while True:
+    output = ready_model()
 
-print(f"Generated Code:\n{output}")
-exec(output)
+    if output == "":
+        break
+
+    try:
+        print(f"🤖 실행할 코드:\n{output}")
+        exec(output)
+    except Exception as e:
+        print(f"⚠️ 실행 중 오류 발생: {e}")
