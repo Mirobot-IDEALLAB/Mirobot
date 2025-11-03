@@ -9,7 +9,6 @@ class MirobotAPI:
         self.mirobot = wlkatapython.Mirobot_UART()
         self.serial_connection = serial.Serial(self.serial_port, self.baud_rate)
         self.mirobot.init(self.serial_connection, -1)
-        self.mirobot.homing()
 
 
     # Homing
