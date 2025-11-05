@@ -32,8 +32,16 @@ class Motion:
         self.mirobot.cancellation()
         time.sleep(1)
     
+    def getCoordinate(self, axis):
+        """Get the current coordinate of the specified axis (1-6)."""
+        if axis not in [1, 2, 3, 4, 5, 6]:
+            print("잘못된 축 번호입니다. 1에서 6 사이의 값을 입력하세요.")
+            return None
+        coord = self.mirobot.getcoordinate(axis)
+        return coord
 
-    def writeCoordinate(self, coordinates, motion=1, position=1):
+
+    def writeCoordinate(self, coordinates, motion=0, position=1):
         """control robotic arm in Cartesian coordinate."""
         print(f"Moving to coordinates: {coordinates} with motion={motion}, position={position}")
         self.mirobot.writecoordinate(motion, position, *coordinates)
