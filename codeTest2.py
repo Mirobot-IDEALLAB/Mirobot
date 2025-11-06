@@ -1,10 +1,11 @@
+#%%
 # from MirobotAPI import MirobotAPI as Motion
 from motion2 import Motion
 from dotenv import load_dotenv
 import serial
 import time
 import os
-
+#%%
 load_dotenv()
 
 # 시리얼 통신 설정
@@ -12,7 +13,7 @@ load_dotenv()
 # BAUD_RATE = os.getenv('BAUD_RATE')
 
 robot = Motion(serial_port="/dev/ttyUSB0", baud_rate=115200)
-
+#%%
 # robot.homing()
 # time.sleep(5)  # 홈 위치로 이동할 시간을 줌
 
@@ -30,3 +31,6 @@ robot.zero()
 # robot.home()
 # time.sleep(15)
 # robot.home()
+#%asdfasdf
+
+ vmfjhavmasdf 
