@@ -32,5 +32,3 @@ robot.zero()
 # time.sleep(15)
 # robot.home()
 #%asdfasdf
-
- vmfjhavmasdf 
