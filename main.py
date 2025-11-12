@@ -1,5 +1,5 @@
 from Gemini_model import ready_model 
-from MirobotAPI import MirobotAPI
+from test.MirobotAPI import MirobotAPI
 from dotenv import load_dotenv
 import serial
 import time

@@ -1,6 +1,8 @@
 import wlkatapython
 import serial
 import time
+import threading
+import queue
 
 # 아래 코드는 prompt에서 사용하기 위해 작성된 코드임
 # wlkatapython 라이브러리를 참고하여 직접 작성한 Motion 클래스
@@ -13,11 +15,46 @@ class Motion:
         self.mirobot = wlkatapython.Mirobot_UART()
         self.serial_connection = serial.Serial(self.serial_port, self.baud_rate)
         self.mirobot.init(self.serial_connection, -1)
-        self.mirobot.homing()
+        self.queue = queue.Queue()
+        self.running = True
 
+        # 큐 처리 스레드 시작
+        self.worker = threading.Thread(target=self._process_queue, daemon=True)
+        self.worker.start()
+
+        # 초기 호밍
+        self.mirobot.homing()
+    
+    def _process_queue(self):
+        while self.running:
+            try:
+                func, args, kwargs = self.queue.get(timeout=0.2)
+            except queue.Empty:
+                continue
+
+            try:
+                func(*args, **kwargs)
+            except Exception as e:
+                print(f"[Motion] 명령 실행 중 오류: {e}")
+            finally:
+                self.queue.task_done()
+
+    
+    # 명령 큐 추가 헬퍼
+    def _enqueue(self, func, *args, **kwargs):
+        """내부용: 명령을 큐에 추가"""
+        self.queue.put((func, args, kwargs))
+
+    # mirobot 명령어
+    def get_state(self):
+        """Get the current state of the robot."""
+        state = self.mirobot.getState()
+        print(state)
+        return state
 
     def homing(self):
         """Return the robot arm to its zero position and idle state."""
+        
         self.mirobot.homing()
         time.sleep(1)
 
