@@ -1,5 +1,4 @@
 #%%
-# from MirobotAPI import MirobotAPI as Motion
 from motion2 import Motion
 from dotenv import load_dotenv
 import serial
